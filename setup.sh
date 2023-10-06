@@ -41,12 +41,12 @@ if [ $os = "kali" ]; then
     sudo apt-get install git -y > /dev/null 2>&1 
     sudo apt-get install wget -y > /dev/null 2>&1
     sudo apt-get install curl -y > /dev/null 2>&1
-    pip3 install lolcat -y > /dev/null 2>&1
+    pipx install lolcat -y > /dev/null 2>&1
     sudo apt install tor -y > /dev/null 2>&1
     git clone https://github.com/evildevill/instahack.git
     cd instahack
     export PATH=/home/$USER/.local/bin:$PATH
-    pip3 install -r requirements.txt
+    pipx install -r requirements.txt
     sudo firefox https://youtu.be/2JWLLKuicUo > /dev/null 2>&1
     sudo rm -rf /etc/tor/torrc
     sudo cp torrc /etc/tor/torrc
@@ -75,16 +75,16 @@ elif [ $os = "termux" ]; then
     pkg install wget -y
     pkg install curl -y
     pkg install tor -y
-    pip3 install lolcat
-    pip3 install requests
-    pip3 install mechanize
-    pip3 install bs4
-    pip3 install colorama
-    pip3 install requests[socks]
-    pip3 install stem
-    pip3 install geopy>=2.0.0
-    pip3 install prettytable==0.7.2
-    pip3 install instagram-private-api==1.6.0
+    pipx install lolcat
+    pipx install requests
+    pipx install mechanize
+    pipx install bs4
+    pipx install colorama
+    pipx install requests[socks]
+    pipx install stem
+    pipx install geopy>=2.0.0
+    pipx install prettytable==0.7.2
+    pipx install instagram-private-api==1.6.0
     cd
     git clone https://github.com/evildevill/instahack.git
     cd instahack
