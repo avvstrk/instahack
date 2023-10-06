@@ -37,16 +37,16 @@ if [ $os = "kali" ]; then
     sleep 1
     # sudo apt-get update -y > /dev/null 2>&1
     # sudo apt-get upgrade -y > /dev/null 2>&1
-    sudo apt-get install python -y > /dev/null 2>&1
-    sudo apt-get install git -y > /dev/null 2>&1 
-    sudo apt-get install wget -y > /dev/null 2>&1
-    sudo apt-get install curl -y > /dev/null 2>&1
-    pipx install lolcat -y > /dev/null 2>&1
-    sudo apt install tor -y > /dev/null 2>&1
-    git clone https://github.com/evildevill/instahack.git
+    sudo pacman -S install python -y > /dev/null 2>&1
+    sudo pacman -S  install git -y > /dev/null 2>&1 
+    sudo pacman -S  install wget -y > /dev/null 2>&1
+    sudo pacman -S  install curl -y > /dev/null 2>&1
+    pipx install lolcat -y > /dev/null 2>&1 --break-system-packages
+    sudo pacman -S install tor -y > /dev/null 2>&1
+    sudo git clone https://github.com/evildevill/instahack.git
     cd instahack
     export PATH=/home/$USER/.local/bin:$PATH
-    pipx install -r requirements.txt
+    pipx install -r requirements.txt --break-system-packages
     sudo firefox https://youtu.be/2JWLLKuicUo > /dev/null 2>&1
     sudo rm -rf /etc/tor/torrc
     sudo cp torrc /etc/tor/torrc
@@ -75,18 +75,18 @@ elif [ $os = "termux" ]; then
     pkg install wget -y
     pkg install curl -y
     pkg install tor -y
-    pipx install lolcat
-    pipx install requests
-    pipx install mechanize
-    pipx install bs4
-    pipx install colorama
-    pipx install requests[socks]
-    pipx install stem
-    pipx install geopy>=2.0.0
-    pipx install prettytable==0.7.2
-    pipx install instagram-private-api==1.6.0
+    pipx install lolcat --break-system-packages
+    pipx install requests --break-system-packages
+    pipx install mechanize --break-system-packages
+    pipx install bs4 --break-system-packages
+    pipx install colorama --break-system-packages
+    pipx install requests[socks] --break-system-packages
+    pipx install stem --break-system-packages
+    pipx install geopy>=2.0.0 --break-system-packages
+    pipx install prettytable==0.7.2 --break-system-packages
+    pipx install instagram-private-api==1.6.0 --break-system-packages
     cd
-    git clone https://github.com/evildevill/instahack.git
+    sudo git clone https://github.com/evildevill/instahack.git
     cd instahack
     am start -a android.intent.action.VIEW -d https://youtu.be/2JWLLKuicUo 2>/dev/null
     rm -rf /data/data/com.termux/files/usr/etc/tor/torrc
